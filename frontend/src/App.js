@@ -46,7 +46,7 @@ const Home = () => {
       {/* Floating Call Button */}
       {isFloatingVisible && (
         <Button
-          className="fixed bottom-6 right-6 z-50 w-16 h-16 rounded-full bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white shadow-2xl animate-pulse"
+          className="fixed bottom-6 right-6 z-50 w-16 h-16 rounded-full bg-gray-800 hover:bg-gray-900 text-white shadow-2xl"
           onClick={() => window.location.href = `tel:${mockData.company.phone}`}
         >
           <Phone className="w-7 h-7" />
