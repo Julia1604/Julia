@@ -1,38 +1,59 @@
-import { useEffect } from "react";
-import "@/App.css";
+import React, { useState, useRef } from "react";
+import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import axios from "axios";
-
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-const API = `${BACKEND_URL}/api`;
+import { Phone } from "lucide-react";
+import { mockData } from "./mock";
+import { Header } from "./components/Header";
+import { HeroSection } from "./components/HeroSection";
+import { WhyChooseUs } from "./components/WhyChooseUs";
+import { ServicesSection } from "./components/ServicesSection";
+import { HowWeWork } from "./components/HowWeWork";
+import { ReviewsSection } from "./components/ReviewsSection";
+import { AboutSection } from "./components/AboutSection";
+import { ContactForm } from "./components/ContactForm";
+import { Footer } from "./components/Footer";
+import { Toaster } from "./components/ui/sonner";
+import { Button } from "./components/ui/button";
 
 const Home = () => {
-  const helloWorldApi = async () => {
-    try {
-      const response = await axios.get(`${API}/`);
-      console.log(response.data.message);
-    } catch (e) {
-      console.error(e, `errored out requesting / api`);
-    }
+  const [isFloatingVisible, setIsFloatingVisible] = useState(true);
+  const contactRef = useRef(null);
+  
+  const scrollToContact = () => {
+    contactRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
-
-  useEffect(() => {
-    helloWorldApi();
-  }, []);
-
+  
   return (
-    <div>
-      <header className="App-header">
-        <a
-          className="App-link"
-          href="https://emergent.sh"
-          target="_blank"
-          rel="noopener noreferrer"
+    <div className="relative">
+      <Header companyData={mockData.company} />
+      <HeroSection 
+        companyData={mockData.company} 
+        onContactClick={scrollToContact}
+      />
+      <WhyChooseUs reasons={mockData.whyChooseUs} />
+      <ServicesSection 
+        services={mockData.services} 
+        onContactClick={scrollToContact}
+      />
+      <HowWeWork steps={mockData.howWeWork} />
+      <ReviewsSection reviews={mockData.reviews} />
+      <AboutSection />
+      <div ref={contactRef}>
+        <ContactForm />
+      </div>
+      <Footer companyData={mockData.company} />
+      
+      {/* Floating Call Button */}
+      {isFloatingVisible && (
+        <Button
+          className="fixed bottom-6 right-6 z-50 w-16 h-16 rounded-full bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white shadow-2xl animate-pulse"
+          onClick={() => window.location.href = `tel:${mockData.company.phone}`}
         >
-          <img src="https://avatars.githubusercontent.com/in/1201222?s=120&u=2686cf91179bbafbc7a71bfbc43004cf9ae1acea&v=4" />
-        </a>
-        <p className="mt-5">Building something incredible ~!</p>
-      </header>
+          <Phone className="w-7 h-7" />
+        </Button>
+      )}
+      
+      <Toaster />
     </div>
   );
 };
@@ -42,9 +63,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />}>
-            <Route index element={<Home />} />
-          </Route>
+          <Route path="/" element={<Home />} />
         </Routes>
       </BrowserRouter>
     </div>
