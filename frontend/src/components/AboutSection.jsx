@@ -34,11 +34,11 @@ export const AboutSection = () => {
             </div>
           </div>
           
-          <p className="text-lg text-gray-700 leading-relaxed">
+          <p className="text-base text-gray-700 leading-relaxed mb-4">
             <span className="font-semibold text-gray-900">ProAuto Expert</span> — це команда досвідчених автоекспертів, які допомагають українцям купувати автомобілі без ризиків. Ми підбираємо авто так, ніби обираємо для себе.
           </p>
           
-          <p className="text-gray-700 leading-relaxed mt-4">
+          <p className="text-base text-gray-700 leading-relaxed">
             Наша місія — зробити процес купівлі авто прозорим, чесним та безпечним. Кожна перевірка проводиться за понад 50 параметрами, а наш детальний звіт допоможе вам прийняти правильне рішення.
           </p>
         </div>

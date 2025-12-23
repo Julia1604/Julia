@@ -29,7 +29,7 @@ export const ContactForm = () => {
     
     toast({
       title: 'Дякуємо за звернення!',
-      description: 'Ми звʼяжемось з вами найближчим часом',
+      description: 'Ми зв\'яжемось з вами найближчим часом',
     });
     
     // Reset form
@@ -45,32 +45,32 @@ export const ContactForm = () => {
       <div className="container mx-auto max-w-2xl">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Звʼяжіться з нами
+            Зв'яжіться з нами
           </h2>
           <p className="text-lg text-gray-600">
-            Залишіть заявку і ми звʼяжемось з вами зручним способом
+            Залиште заявку і ми зв'яжемось з вами зручним способом
           </p>
         </div>
         
         <Card className="shadow-xl border-gray-200 bg-white">
           <CardHeader>
-            <CardTitle className="text-2xl text-gray-900">Форма зворотного звʼязку</CardTitle>
+            <CardTitle className="text-2xl text-gray-900">Форма зворотного зв'язку</CardTitle>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="space-y-2">
                 <Label htmlFor="name" className="text-gray-700">
                   <User className="w-4 h-4 inline mr-2" />
-                  Ваше імʼя
+                  Ваше ім'я
                 </Label>
                 <Input
                   id="name"
                   type="text"
-                  placeholder="Введіть ваше імʼя"
+                  placeholder="Введіть ваше ім'я"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   required
-                  className="border-gray-300"
+                  className="border-gray-300 placeholder:text-[#b7b7b7]"
                 />
               </div>
               
@@ -86,14 +86,14 @@ export const ContactForm = () => {
                   value={formData.phone}
                   onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                   required
-                  className="border-gray-300"
+                  className="border-gray-300 placeholder:text-[#b7b7b7]"
                 />
               </div>
               
               <div className="space-y-2">
                 <Label className="text-gray-700">
                   <MessageSquare className="w-4 h-4 inline mr-2" />
-                  Як зручніше звʼязатись?
+                  Як зручніше зв'язатись?
                 </Label>
                 <div className="grid grid-cols-2 gap-3">
                   {contactMethods.map((method) => (

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Phone, MapPin, Clock, Mail } from 'lucide-react';
+import { Phone, MapPin, Clock, Mail, Instagram } from 'lucide-react';
 import { Button } from './ui/button';
 
 export const Footer = ({ companyData }) => {
@@ -42,6 +42,19 @@ export const Footer = ({ companyData }) => {
               <div className="flex items-start space-x-3">
                 <Clock className="w-5 h-5 text-gray-400 flex-shrink-0 mt-1" />
                 <span className="text-gray-400">{companyData.workingHours}</span>
+              </div>
+              <div className="flex items-start space-x-3">
+                <Instagram className="w-5 h-5 text-gray-400 flex-shrink-0 mt-1" />
+                <div>
+                  <a 
+                    href={companyData.instagram} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="hover:text-gray-300 transition-colors"
+                  >
+                    @proauto.expert
+                  </a>
+                </div>
               </div>
             </div>
           </div>

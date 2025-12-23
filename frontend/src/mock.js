@@ -5,9 +5,10 @@ export const mockData = {
     rating: 4.9,
     reviewsCount: 58,
     address: 'проспект Дмитра Яворницького, 8, Дніпро, Дніпропетровська область, 49000',
-    workingHours: 'Щодня до 20:00',
+    workingHours: 'Щодня з 09:00 до 20:00',
     email: 'info@proautoexpert.ua',
-    logo: 'https://customer-assets.emergentagent.com/job_auto-inspector-13/artifacts/o9u8kadi_PROpng.png'
+    logo: 'https://customer-assets.emergentagent.com/job_auto-inspector-13/artifacts/o9u8kadi_PROpng.png',
+    instagram: 'https://www.instagram.com/proauto.expert?igsh=MWhqdXh1YWtmOTZ3MQ=='
   },
   
   services: [
@@ -29,7 +30,7 @@ export const mockData = {
       id: 3,
       title: 'Оцінка авто перед продажем',
       description: 'Професійна оцінка вартості вашого автомобіля для успішного продажу',
-      price: '100$',
+      price: '3000 грн',
       icon: 'DollarSign'
     },
     {
@@ -45,6 +46,13 @@ export const mockData = {
       description: 'Перевірка документів, історії авто та юридична чистота угоди',
       price: '100$',
       icon: 'FileText'
+    },
+    {
+      id: 6,
+      title: 'Онлайн консультація',
+      description: 'Професійна консультація по підбору автомобіля в онлайн форматі',
+      price: '2000 грн',
+      icon: 'Video'
     }
   ],
   
@@ -52,7 +60,7 @@ export const mockData = {
     {
       id: 1,
       title: '12+ років досвіду',
-      description: 'Тисячі перевірених автомобілів та задоволених клієнтів'
+      description: 'Тисячі перевірених автомобілів та сотні задоволених клієнтів'
     },
     {
       id: 2,
@@ -67,7 +75,7 @@ export const mockData = {
     {
       id: 4,
       title: '300+ задоволених клієнтів',
-      description: 'Які довіряють нам підбір свого автомобіля'
+      description: 'Які довірили нам підбір свого автомобіля'
     }
   ],
   
@@ -118,7 +126,7 @@ export const mockData = {
       id: 3,
       name: 'Ігор Мельник',
       rating: 5,
-      date: '3 тижні тому',
+      date: '1 місяць тому',
       text: 'Замовив послугу "Автоексперт на день". За один день переглянули 4 авто, і тільки одне виявилось нормальним. Економія часу та грошей величезна. Професіонали своєї справи!'
     },
     {
@@ -132,14 +140,14 @@ export const mockData = {
       id: 5,
       name: 'Дмитро Петренко',
       rating: 5,
-      date: '1 місяць тому',
+      date: '3 місяці тому',
       text: 'Перевіряли Mercedes перед покупкою. Виявили перефарбування та проблеми з підвіскою. Детальний звіт з фото переконав продавця знизити ціну на 500$. Окупилось з головою!'
     },
     {
       id: 6,
       name: 'Віктор Бондаренко',
       rating: 5,
-      date: '3 місяці тому',
+      date: '6 місяців тому',
       text: 'Найкраща інвестиція перед покупкою авто! Хлопці дуже уважні до деталей, перевіряють все до дрібниць. Спокій та впевненість у покупці - безцінно.'
     }
   ]

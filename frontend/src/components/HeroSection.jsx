@@ -10,8 +10,7 @@ export const HeroSection = ({ companyData, onContactClick }) => {
       <div className="container mx-auto max-w-6xl relative z-10">
         <div className="text-center space-y-8">
           <h1 className="text-4xl md:text-6xl font-bold text-gray-900 leading-tight">
-            Професійний підбір та огляд<br />
-            автомобілів в Україні
+            Професійний автопідбір
           </h1>
           
           <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto font-medium">

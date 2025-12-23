@@ -1,5 +1,5 @@
 import React from 'react';
-import { Search, Clock, DollarSign, Car, FileText } from 'lucide-react';
+import { Search, Clock, DollarSign, Car, FileText, Video } from 'lucide-react';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from './ui/card';
 import { Button } from './ui/button';
 
@@ -8,7 +8,8 @@ const iconMap = {
   Clock,
   DollarSign,
   Car,
-  FileText
+  FileText,
+  Video
 };
 
 export const ServicesSection = ({ services, onContactClick }) => {
