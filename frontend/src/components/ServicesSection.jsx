@@ -30,10 +30,10 @@ export const ServicesSection = ({ services, onContactClick }) => {
             return (
               <Card 
                 key={service.id} 
-                className="hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-gray-200"
+                className="hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-gray-200 bg-white"
               >
                 <CardHeader>
-                  <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center mb-4">
+                  <div className="w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center mb-4">
                     <Icon className="w-6 h-6 text-white" />
                   </div>
                   <CardTitle className="text-xl text-gray-900">{service.title}</CardTitle>
@@ -43,11 +43,11 @@ export const ServicesSection = ({ services, onContactClick }) => {
                 </CardHeader>
                 <CardContent>
                   <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-                    <span className="text-2xl font-bold text-blue-600">{service.price}</span>
+                    <span className="text-2xl font-bold text-gray-900">{service.price}</span>
                     <Button 
                       size="sm"
                       variant="outline"
-                      className="border-blue-500 text-blue-600 hover:bg-blue-50"
+                      className="border-gray-800 text-gray-800 hover:bg-gray-100"
                       onClick={onContactClick}
                     >
                       Замовити

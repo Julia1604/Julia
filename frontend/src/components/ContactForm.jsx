@@ -52,7 +52,7 @@ export const ContactForm = () => {
           </p>
         </div>
         
-        <Card className="shadow-xl border-gray-200">
+        <Card className="shadow-xl border-gray-200 bg-white">
           <CardHeader>
             <CardTitle className="text-2xl text-gray-900">Форма зворотного звʼязку</CardTitle>
           </CardHeader>
@@ -103,8 +103,8 @@ export const ContactForm = () => {
                       onClick={() => setFormData({ ...formData, contactMethod: method.value })}
                       className={`py-3 px-4 rounded-lg border-2 transition-all duration-200 font-medium ${
                         formData.contactMethod === method.value
-                          ? 'border-blue-500 bg-blue-50 text-blue-700'
-                          : 'border-gray-200 bg-white text-gray-700 hover:border-blue-300'
+                          ? 'border-gray-800 bg-gray-100 text-gray-900'
+                          : 'border-gray-200 bg-white text-gray-700 hover:border-gray-400'
                       }`}
                     >
                       {method.label}
@@ -116,7 +116,7 @@ export const ContactForm = () => {
               <Button 
                 type="submit"
                 size="lg"
-                className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold"
+                className="w-full bg-gray-800 hover:bg-gray-900 text-white font-semibold transition-all"
               >
                 <Send className="w-5 h-5 mr-2" />
                 Відправити заявку

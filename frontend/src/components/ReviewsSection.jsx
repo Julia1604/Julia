@@ -19,7 +19,7 @@ export const ReviewsSection = ({ reviews }) => {
           {reviews.map((review) => (
             <Card 
               key={review.id} 
-              className="hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-gray-200"
+              className="hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-gray-200 bg-white"
             >
               <CardHeader>
                 <div className="flex items-start justify-between mb-2">
@@ -29,7 +29,7 @@ export const ReviewsSection = ({ reviews }) => {
                   </div>
                   <div className="flex">
                     {[...Array(review.rating)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 text-orange-500 fill-orange-500" />
+                      <Star key={i} className="w-4 h-4 text-gray-800 fill-gray-800" />
                     ))}
                   </div>
                 </div>
