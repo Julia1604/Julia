@@ -1,15 +1,15 @@
 import React from 'react';
-import { Shield, Star, CheckCircle, Heart } from 'lucide-react';
+import { Award, CheckCircle, Star, MessageSquare } from 'lucide-react';
 
 const iconMap = {
-  Shield,
-  Star,
+  Award,
   CheckCircle,
-  Heart
+  Star,
+  MessageSquare
 };
 
 export const WhyChooseUs = ({ reasons }) => {
-  const icons = [Shield, Star, CheckCircle, Heart];
+  const icons = [Award, CheckCircle, Star, MessageSquare];
   
   return (
     <section className="py-20 px-4 bg-white">
@@ -31,7 +31,7 @@ export const WhyChooseUs = ({ reasons }) => {
                 key={reason.id} 
                 className="text-center p-6 rounded-xl hover:shadow-lg transition-all duration-300 hover:-translate-y-1 bg-gradient-to-b from-gray-50 to-white border border-gray-100"
               >
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full mb-4">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-gray-800 rounded-full mb-4">
                   <Icon className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">
