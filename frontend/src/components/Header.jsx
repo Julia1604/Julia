@@ -3,6 +3,16 @@ import { Phone, Clock, Instagram, Send } from 'lucide-react';
 import { Button } from './ui/button';
 
 export const Header = ({ companyData }) => {
+  const handleInstagramClick = (e) => {
+    e.preventDefault();
+    window.open(companyData.instagram, '_blank');
+  };
+  
+  const handleTelegramClick = (e) => {
+    e.preventDefault();
+    window.open(companyData.telegram, '_blank');
+  };
+  
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm">
       <div className="container mx-auto px-4">
@@ -22,25 +32,21 @@ export const Header = ({ companyData }) => {
             </div>
             
             <div className="flex items-center space-x-3">
-              <a
-                href={companyData.instagram}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-9 h-9 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors"
+              <button
+                onClick={handleInstagramClick}
+                className="w-9 h-9 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors cursor-pointer"
                 aria-label="Instagram"
               >
                 <Instagram className="w-5 h-5 text-gray-800" />
-              </a>
+              </button>
               
-              <a
-                href={companyData.telegram}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-9 h-9 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors"
+              <button
+                onClick={handleTelegramClick}
+                className="w-9 h-9 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors cursor-pointer"
                 aria-label="Telegram"
               >
                 <Send className="w-5 h-5 text-gray-800" />
-              </a>
+              </button>
             </div>
             
             <Button 
@@ -53,25 +59,21 @@ export const Header = ({ companyData }) => {
           </div>
 
           <div className="md:hidden flex items-center space-x-2">
-            <a
-              href={companyData.instagram}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-9 h-9 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors"
+            <button
+              onClick={handleInstagramClick}
+              className="w-9 h-9 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors cursor-pointer"
               aria-label="Instagram"
             >
               <Instagram className="w-5 h-5 text-gray-800" />
-            </a>
+            </button>
             
-            <a
-              href={companyData.telegram}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-9 h-9 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors"
+            <button
+              onClick={handleTelegramClick}
+              className="w-9 h-9 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors cursor-pointer"
               aria-label="Telegram"
             >
               <Send className="w-5 h-5 text-gray-800" />
-            </a>
+            </button>
             
             <Button 
               className="bg-gray-800 hover:bg-gray-900 text-white"
