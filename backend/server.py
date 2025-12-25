@@ -40,6 +40,11 @@ class StatusCheck(BaseModel):
 class StatusCheckCreate(BaseModel):
     client_name: str
 
+class ContactFormSubmission(BaseModel):
+    name: str
+    phone: str
+    contactMethod: str
+
 # Add your routes to the router instead of directly to app
 @api_router.get("/")
 async def root():
