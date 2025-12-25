@@ -8,7 +8,8 @@ export const mockData = {
     workingHours: 'Щодня з 09:00 до 20:00',
     email: 'info@proautoexpert.ua',
     logo: 'https://customer-assets.emergentagent.com/job_auto-inspector-13/artifacts/o9u8kadi_PROpng.png',
-    instagram: 'https://www.instagram.com/proauto.expert?igsh=MWhqdXh1YWtmOTZ3MQ=='
+    instagram: 'https://www.instagram.com/proauto.expert?igsh=MWhqdXh1YWtmOTZ3MQ==',
+    telegram: 'https://t.me/proautoexpert'
   },
   
   services: [
