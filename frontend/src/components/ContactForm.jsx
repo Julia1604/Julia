@@ -1,13 +1,18 @@
 import React, { useState } from 'react';
-import { Send, User, Phone, MessageSquare } from 'lucide-react';
+import { Send, User, Phone, MessageSquare, Loader2 } from 'lucide-react';
 import { Card, CardHeader, CardTitle, CardContent } from './ui/card';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Label } from './ui/label';
 import { useToast } from '../hooks/use-toast';
+import axios from 'axios';
+
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+const API = `${BACKEND_URL}/api`;
 
 export const ContactForm = () => {
   const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -21,23 +26,35 @@ export const ContactForm = () => {
     { value: 'whatsapp', label: 'WhatsApp' }
   ];
   
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     
-    // Mock form submission
-    console.log('Form submitted:', formData);
+    setIsSubmitting(true);
     
-    toast({
-      title: 'Дякуємо за звернення!',
-      description: 'Ми зв\'яжемось з вами найближчим часом',
-    });
-    
-    // Reset form
-    setFormData({
-      name: '',
-      phone: '',
-      contactMethod: 'phone'
-    });
+    try {
+      const response = await axios.post(`${API}/contact`, formData);
+      
+      toast({
+        title: 'Дякуємо за звернення!',
+        description: 'Ми зв\'яжемося з вами найближчим часом',
+      });
+      
+      // Reset form
+      setFormData({
+        name: '',
+        phone: '',
+        contactMethod: 'phone'
+      });
+    } catch (error) {
+      console.error('Contact form error:', error);
+      toast({
+        title: 'Помилка',
+        description: error.response?.data?.detail || 'Помилка при відправці заявки. Спробуйте пізніше.',
+        variant: 'destructive',
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
   
   return (
