@@ -120,11 +120,12 @@ export const ContactForm = () => {
                       key={method.value}
                       type="button"
                       onClick={() => setFormData({ ...formData, contactMethod: method.value })}
+                      disabled={isSubmitting}
                       className={`py-3 px-4 rounded-lg border-2 transition-all duration-200 font-medium ${
                         formData.contactMethod === method.value
                           ? 'border-gray-800 bg-gray-100 text-gray-900'
                           : 'border-gray-200 bg-white text-gray-700 hover:border-gray-400'
-                      }`}
+                      } disabled:opacity-50 disabled:cursor-not-allowed`}
                     >
                       {method.label}
                     </button>
