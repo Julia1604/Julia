@@ -24,7 +24,6 @@ export const Header = ({ companyData }) => {
             <div className="flex items-center space-x-3">
               <a
                 href={companyData.instagram}
-                target="_blank"
                 className="w-9 h-9 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors"
                 aria-label="Instagram"
               >
@@ -33,7 +32,6 @@ export const Header = ({ companyData }) => {
               
               <a
                 href={companyData.telegram}
-                target="_blank"
                 className="w-9 h-9 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors"
                 aria-label="Telegram"
               >
@@ -53,7 +51,6 @@ export const Header = ({ companyData }) => {
           <div className="md:hidden flex items-center space-x-2">
             <a
               href={companyData.instagram}
-              target="_blank"
               className="w-9 h-9 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors"
               aria-label="Instagram"
             >
@@ -62,7 +59,6 @@ export const Header = ({ companyData }) => {
             
             <a
               href={companyData.telegram}
-              target="_blank"
               className="w-9 h-9 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors"
               aria-label="Telegram"
             >
