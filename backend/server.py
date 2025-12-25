@@ -45,6 +45,46 @@ class ContactFormSubmission(BaseModel):
     phone: str
     contactMethod: str
 
+# Email sending function
+def send_contact_email(name: str, phone: str, contact_method: str):
+    """Send contact form data via Gmail SMTP"""
+    try:
+        gmail_user = os.environ.get('GMAIL_USER')
+        gmail_password = os.environ.get('GMAIL_APP_PASSWORD')
+        
+        if not gmail_user or not gmail_password:
+            raise ValueError("Gmail credentials not configured")
+        
+        # Create message
+        msg = MIMEMultipart()
+        msg['From'] = gmail_user
+        msg['To'] = gmail_user
+        msg['Subject'] = 'Нова заявка з сайту ProAuto Expert'
+        
+        # Email body
+        body = f"""
+Нова заявка з сайту ProAuto Expert
+
+Ім'я: {name}
+Телефон: {phone}
+Спосіб зв'язку: {contact_method}
+
+Дата відправки: {datetime.now().strftime('%d.%m.%Y %H:%M:%S')}
+        """
+        
+        msg.attach(MIMEText(body, 'plain', 'utf-8'))
+        
+        # Send email
+        with smtplib.SMTP('smtp.gmail.com', 587) as server:
+            server.starttls()
+            server.login(gmail_user, gmail_password)
+            server.send_message(msg)
+        
+        return True
+    except Exception as e:
+        logging.error(f"Failed to send email: {str(e)}")
+        raise
+
 # Add your routes to the router instead of directly to app
 @api_router.get("/")
 async def root():
