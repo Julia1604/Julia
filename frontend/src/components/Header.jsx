@@ -1,5 +1,5 @@
 import React from 'react';
-import { Phone, Clock } from 'lucide-react';
+import { Phone, Clock, Instagram, Send } from 'lucide-react';
 import { Button } from './ui/button';
 
 export const Header = ({ companyData }) => {
@@ -20,6 +20,29 @@ export const Header = ({ companyData }) => {
               <Clock className="w-4 h-4" />
               <span className="text-sm">{companyData.workingHours}</span>
             </div>
+            
+            <div className="flex items-center space-x-3">
+              <a
+                href={companyData.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors"
+                aria-label="Instagram"
+              >
+                <Instagram className="w-5 h-5 text-gray-800" />
+              </a>
+              
+              <a
+                href={companyData.telegram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors"
+                aria-label="Telegram"
+              >
+                <Send className="w-5 h-5 text-gray-800" />
+              </a>
+            </div>
+            
             <Button 
               className="bg-gray-800 hover:bg-gray-900 text-white font-semibold px-6 transition-all"
               onClick={() => window.location.href = `tel:${companyData.phone}`}
@@ -29,13 +52,35 @@ export const Header = ({ companyData }) => {
             </Button>
           </div>
 
-          <Button 
-            className="md:hidden bg-gray-800 hover:bg-gray-900 text-white"
-            size="sm"
-            onClick={() => window.location.href = `tel:${companyData.phone}`}
-          >
-            <Phone className="w-4 h-4" />
-          </Button>
+          <div className="md:hidden flex items-center space-x-2">
+            <a
+              href={companyData.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-9 h-9 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors"
+              aria-label="Instagram"
+            >
+              <Instagram className="w-5 h-5 text-gray-800" />
+            </a>
+            
+            <a
+              href={companyData.telegram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-9 h-9 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors"
+              aria-label="Telegram"
+            >
+              <Send className="w-5 h-5 text-gray-800" />
+            </a>
+            
+            <Button 
+              className="bg-gray-800 hover:bg-gray-900 text-white"
+              size="sm"
+              onClick={() => window.location.href = `tel:${companyData.phone}`}
+            >
+              <Phone className="w-4 h-4" />
+            </Button>
+          </div>
         </div>
       </div>
     </header>
