@@ -34,7 +34,7 @@ export const HeroSection = ({ companyData, onContactClick }) => {
               onClick={() => window.location.href = `tel:${companyData.phone}`}
             >
               <Phone className="w-5 h-5 mr-2" />
-              Замовити огляд
+              Зателефонувати
             </Button>
           </div>
         </div>
