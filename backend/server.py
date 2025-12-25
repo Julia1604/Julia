@@ -114,6 +114,32 @@ async def get_status_checks():
     
     return status_checks
 
+@api_router.post("/contact")
+async def submit_contact_form(submission: ContactFormSubmission):
+    """Handle contact form submission and send email"""
+    try:
+        # Send email
+        send_contact_email(
+            name=submission.name,
+            phone=submission.phone,
+            contact_method=submission.contactMethod
+        )
+        
+        # Optionally store in database
+        contact_data = {
+            "id": str(uuid.uuid4()),
+            "name": submission.name,
+            "phone": submission.phone,
+            "contactMethod": submission.contactMethod,
+            "timestamp": datetime.now(timezone.utc).isoformat()
+        }
+        await db.contact_submissions.insert_one(contact_data)
+        
+        return {"message": "Заявку успішно відправлено"}
+    except Exception as e:
+        logging.error(f"Contact form error: {str(e)}")
+        raise HTTPException(status_code=500, detail="Помилка при відправці заявки. Спробуйте пізніше.")
+
 # Include the router in the main app
 app.include_router(api_router)
 
