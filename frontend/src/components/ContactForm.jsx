@@ -136,10 +136,20 @@ export const ContactForm = () => {
               <Button 
                 type="submit"
                 size="lg"
-                className="w-full bg-gray-800 hover:bg-gray-900 text-white font-semibold transition-all"
+                disabled={isSubmitting}
+                className="w-full bg-gray-800 hover:bg-gray-900 text-white font-semibold transition-all disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                <Send className="w-5 h-5 mr-2" />
-                Відправити заявку
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="w-5 h-5 mr-2 animate-spin" />
+                    Відправка...
+                  </>
+                ) : (
+                  <>
+                    <Send className="w-5 h-5 mr-2" />
+                    Відправити заявку
+                  </>
+                )}
               </Button>
             </form>
           </CardContent>
