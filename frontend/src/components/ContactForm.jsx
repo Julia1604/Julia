@@ -104,6 +104,7 @@ export const ContactForm = () => {
                   value={formData.phone}
                   onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                   required
+                  disabled={isSubmitting}
                   className="border-gray-300 placeholder:text-[#b7b7b7]"
                 />
               </div>
