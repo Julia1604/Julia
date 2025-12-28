@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Send, User, Phone, MessageSquare, Loader2 } from 'lucide-react';
+import { Send, User, Phone, MessageSquare, Loader2, CheckCircle, X } from 'lucide-react';
 import { Card, CardHeader, CardTitle, CardContent } from './ui/card';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
@@ -10,9 +10,62 @@ import axios from 'axios';
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
 
+// Success Modal Component
+const SuccessModal = ({ isOpen, onClose }) => {
+  if (!isOpen) return null;
+  
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center">
+      {/* Backdrop */}
+      <div 
+        className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+        onClick={onClose}
+      />
+      
+      {/* Modal */}
+      <div className="relative bg-white rounded-2xl shadow-2xl max-w-md w-full mx-4 p-8 animate-in fade-in zoom-in duration-300">
+        {/* Close button */}
+        <button 
+          onClick={onClose}
+          className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors"
+        >
+          <X className="w-6 h-6" />
+        </button>
+        
+        {/* Content */}
+        <div className="text-center">
+          {/* Success Icon */}
+          <div className="mx-auto w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mb-6">
+            <CheckCircle className="w-10 h-10 text-gray-800" />
+          </div>
+          
+          {/* Title */}
+          <h3 className="text-2xl font-bold text-gray-900 mb-4">
+            Дякуємо!
+          </h3>
+          
+          {/* Message */}
+          <p className="text-gray-600 text-lg leading-relaxed mb-8">
+            Ваше звернення вже у нас. Майстер зв'яжеться з вами найближчим часом.
+          </p>
+          
+          {/* Close Button */}
+          <Button 
+            onClick={onClose}
+            className="bg-gray-800 hover:bg-gray-900 text-white font-semibold px-8 py-3"
+          >
+            Зрозуміло
+          </Button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 export const ContactForm = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
