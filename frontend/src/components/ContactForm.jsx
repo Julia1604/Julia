@@ -110,6 +110,12 @@ export const ContactForm = () => {
   
   return (
     <section id="contact" className="py-20 px-4 bg-gradient-to-b from-white to-gray-50">
+      {/* Success Modal */}
+      <SuccessModal 
+        isOpen={showSuccessModal} 
+        onClose={() => setShowSuccessModal(false)} 
+      />
+      
       <div className="container mx-auto max-w-2xl">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
