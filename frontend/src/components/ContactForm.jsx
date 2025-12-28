@@ -87,10 +87,8 @@ export const ContactForm = () => {
     try {
       const response = await axios.post(`${API}/contact`, formData);
       
-      toast({
-        title: 'Дякуємо за звернення!',
-        description: 'Ми зв\'яжемося з вами найближчим часом',
-      });
+      // Show success modal
+      setShowSuccessModal(true);
       
       // Reset form
       setFormData({
